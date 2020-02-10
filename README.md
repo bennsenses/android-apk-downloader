@@ -3,4 +3,4 @@
 
 PHP apk downloader
 
-<pre>Ecample: http://example.com/index.php?id=com.freevpn.lite</pre>
+<pre>Example: http://example.com/index.php?id=com.freevpn.lite</pre>
