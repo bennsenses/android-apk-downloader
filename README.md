@@ -1,4 +1,6 @@
 # android-apk-downloader<br>
-PHP apk downloader<br>
-ex play url. http://example.com/index.php?id=https://play.google.com/store/apps/details?id=com.gameloft.android.ANMP.GloftA9HM<br>
-ex play id. http://example.com/index.php?id=com.gameloft.android.ANMP.GloftA9HM
+<h3>Testing Tool https://apk-api.com/</h3>
+
+PHP apk downloader
+
+<pre>Ecample: http://example.com/index.php?id=com.freevpn.lite</pre>
