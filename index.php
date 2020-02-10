@@ -1,11 +1,26 @@
 <?php
-   $id= $_GET['id'];
-   $url1 = "http://apkdl.me/api/?id=$id&key=free";
-   $json = file_get_contents($url1);
-   $json_data = json_decode($json, true);
-   $download = $json_data["dlurl"];
-   $size = $json_data["size"];
-   ?>
+$id=$_GET['id'];
+$url = "https://apk-api.com/api/$id";
+$ch = curl_init($url);
+
+$header = array(
+"key: aries_ganteng", //delete this if you want use your account.
+/*
+"username: example@gmail.com",
+"password: pass",
+"androidId: android_device_id", //Install to get Device ID https://play.google.com/store/apps/details?id=com.evozi.deviceid
+"Android-Finsky/14.3.18-all (versionCode=81431800,sdk=19,device=hammerhead,hardware=hammerhead,product=hammerhead,build=KTU84P:user)",
+"lang: id",
+"country: id"
+*/
+);
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+$result = curl_exec($ch);
+$json_data = json_decode($result, true);
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -19,12 +34,12 @@
             <table class="table table-hover text-left">
                <tbody>
                   <tr>
-                     <td><strong>Package Name:</strong></td>
-                     <td><?php echo $json_data["package"] ;?></td>
+                     <td><strong>Title:</strong></td>
+                     <td><?php echo $json_data["title"] ;?></td>
                   </tr>
                   <tr>
-                     <td><strong>MD5FILE:</strong></td>
-                     <td><?php print $json_data["md5"];?></td>
+                     <td><strong>Package Name:</strong></td>
+                     <td><?php print $id;?></td>
                   </tr>
                   <tr>
                      <td><strong>File Size:</strong></td>
@@ -36,15 +51,16 @@
                   </tr>
                   <tr>
                      <td><strong>Min SDK:</strong></td>
-                     <td><?php print $json_data["min_sdk"];?></td>
+                     <td><?php print $json_data["requirements"];?></td>
                   </tr>
                   <tr>
                      <td><strong>Download Url:</strong></td>
-                     <td><?php echo $json_data["dlurl"];?></td>
+                     <td><?php echo $json_data["download"]["apk"]["url"];?></td>
                   </tr>
                </tbody>
             </table>
          </div>
       </div>
+	  </div>
    </body>
 </html>
