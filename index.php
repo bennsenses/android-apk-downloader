@@ -9,7 +9,7 @@ $header = array(
 "username: example@gmail.com",
 "password: pass",
 "androidId: android_device_id", //Install to get Device ID https://play.google.com/store/apps/details?id=com.evozi.deviceid
-"Android-Finsky/14.3.18-all (versionCode=81431800,sdk=19,device=hammerhead,hardware=hammerhead,product=hammerhead,build=KTU84P:user)",
+"UserAgent: Android-Finsky/14.3.18-all (versionCode=81431800,sdk=19,device=hammerhead,hardware=hammerhead,product=hammerhead,build=KTU84P:user)",
 "lang: id",
 "country: id"
 */
